@@ -1,47 +1,28 @@
-# 超级员工本地版
+# 超级员工无 API 开发者版
 
-这是从原安装包反推后重建的本地优先桌面版 MVP。
+这是 `AI超级员工系统` 的无 API 开发者版桌面框架。
 
-当前重点不是复刻原软件所有云端能力，而是先保留一个可维护、可运行、无远程 API 的基础版本：
+当前版本只保留 Electron 软件外壳、本地导航、本地页面骨架和开发调试能力。远程接口、云端业务入口、账号激活、算力消费和依赖远程服务的模块已从源码删除。
 
-- Electron 桌面应用
-- SQLite 本地数据库
-- 工作台
-- 客户库
-- 任务库
-- 素材库
-- JSON 导入导出
-
-## 项目目录
-
-```text
-super-employee-local-mvp/
-```
-
-## 运行方式
+## 运行
 
 ```bash
-cd super-employee-local-mvp
 npm install
 npm start
 ```
 
-## 检查命令
+## 检查
 
 ```bash
 npm run check
-npm run db:check
+npm run scan:no-api
 npm run smoke
 ```
 
-## 当前边界
+## 打包
 
-当前版本不包含：
+```bash
+npm run package:win
+```
 
-- 登录
-- 远程 API
-- OSS 上传
-- AI 扣点
-- 企微、BOSS、抖音、快手、小红书自动化
-
-这些能力应该等本地 MVP 稳定后，再按模块逐步扩展。
+打包产物会生成在 `dist/`，不提交到 Git。仓库中的 CI 会在 Windows 环境自动构建并上传 artifact。

@@ -1,0 +1,18 @@
+{
+  "name": "super-employee-developer-edition",
+  "version": "0.2.0",
+  "private": true,
+  "description": "No-API developer edition of the AI Super Employee desktop shell.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check main.js && node --check preload.js && node --check app.js",
+    "scan:no-api": "node scripts/check-no-api.js",
+    "smoke": "node scripts/smoke.js",
+    "package:win": "electron-packager . \"AI超级员工系统\" --platform=win32 --arch=x64 --out=dist --overwrite --icon=assets/imgs/logo--logo.png --ignore=\"^/dist($|/)\" --ignore=\"^/release($|/)\" --ignore=\"^/node_modules/.cache($|/)\""
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-packager": "^17.1.2"
+  }
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI超级员工系统</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div id="app" class="app-wrapper">
+      <header class="navbar">
+        <div class="brand">
+          <img class="sidebar-logo" src="./assets/imgs/logo--logo.png" alt="">
+          <div class="title">AI超级员工系统</div>
+        </div>
+
+        <div class="drag-zone"></div>
+
+        <div class="nav-right">
+          <div class="right-menu">
+            <div class="text-info">模式：开发者版</div>
+            <div class="text-info">接口：0</div>
+            <button class="avatar-wrapper" type="button" id="avatarButton">
+              <img class="user-avatar" src="./assets/imgs/logo_2--logo.png" alt="">
+              <span class="text-info user-name">管理员</span>
+            </button>
+            <div class="user-menu" id="userMenu">
+              <button type="button" data-page="首页">首页</button>
+              <button type="button" data-page="开发者工具">开发者工具</button>
+              <button type="button" data-page="更新记录">更新记录</button>
+            </div>
+            <div class="developer-badge">dev</div>
+          </div>
+          <div class="controls" aria-label="窗口控制">
+            <button class="control-btn" type="button" title="刷新" data-window-action="reload">↻</button>
+            <button class="control-btn" type="button" title="最小化" data-window-action="minimize">−</button>
+            <button class="control-btn" type="button" title="最大化" data-window-action="maximize">□</button>
+            <button class="control-btn quit" type="button" title="关闭" data-window-action="close">×</button>
+          </div>
+        </div>
+      </header>
+
+      <aside class="sidebar-container">
+        <nav class="menu" id="menu"></nav>
+      </aside>
+
+      <main class="main-container">
+        <section class="app-main" id="appMain"></section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
