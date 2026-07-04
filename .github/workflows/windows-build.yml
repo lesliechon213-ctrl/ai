@@ -11,7 +11,17 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - windows-latest
+          - windows-2022
+        node:
+          - "20"
+          - "22"
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout
@@ -20,13 +30,16 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: ${{ matrix.node }}
 
       - name: Install dependencies
         run: npm install
 
       - name: Check syntax
         run: npm run check
+
+      - name: Check RP compatibility
+        run: npm run compat
 
       - name: Check no API source
         run: npm run scan:no-api
@@ -37,8 +50,11 @@ jobs:
       - name: Package Windows app
         run: npm run package:win
 
+      - name: Check packaged app
+        run: npm run check:package
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ai-super-employee-developer-windows
+          name: ai-super-employee-developer-${{ matrix.os }}-node${{ matrix.node }}
           path: dist/**

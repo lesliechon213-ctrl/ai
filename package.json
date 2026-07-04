@@ -7,8 +7,10 @@
   "scripts": {
     "start": "electron .",
     "check": "node --check main.js && node --check preload.js && node --check app.js",
+    "compat": "node scripts/compatibility.js",
     "scan:no-api": "node scripts/check-no-api.js",
     "smoke": "node scripts/smoke.js",
+    "check:package": "node scripts/check-package.js",
     "package:win": "electron-packager . \"AI超级员工系统\" --platform=win32 --arch=x64 --out=dist --overwrite --icon=assets/imgs/logo--logo.png --ignore=\"^/dist($|/)\" --ignore=\"^/release($|/)\" --ignore=\"^/node_modules/.cache($|/)\""
   },
   "devDependencies": {
